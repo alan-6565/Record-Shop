@@ -120,8 +120,7 @@ public class ShoppingCartController
             if (item.getQuantity() < 0)
                 throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Quantity must be 0 or more.");
 
-            shoppingCartDao.updateQuantity(userId, productId, item.getQuantity());
-
+            shoppingCartDao.updateProduct(userId, productId, item.getQuantity());
             return shoppingCartDao.getByUserId(userId);
         }
         catch (ResponseStatusException ex)
